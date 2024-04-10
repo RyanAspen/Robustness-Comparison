@@ -142,13 +142,13 @@ To get the Graco dataset working, download from https://sites.google.com/view/gr
 
 Once unzipped, create a symlink so the dataset can be accessed by Swarm-SLAM:
 ```
-cd Swarm-SLAM/src/cslam_experiments
+cd Swarm-SLAM/install/cslam_experiments/share/cslam_experiments/data
 mkdir Graco_ground
 cd Graco_ground
 ln -s PATH_TO_DATASET_FOLDER Graco-0
 ```
 
-In my case, I extracted the dataset to my downloads folder on Windows 11, so the symlink command became "ln -s /mnt/c/Users/(USER)/Downloads/ground-01 Graco-0".
+In my case, I extracted the dataset to my downloads folder on Windows 11, so the symlink command became "ln -s /mnt/c/Users/(USER)/Downloads/ground-01/ground-01_0.db3 Graco-0".
 
 ## Running Experiments (Work in Progress)
 
