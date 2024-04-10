@@ -84,6 +84,30 @@ Navigate to the gtsam folder and do the following. I have errors when doing `mak
 
 ![alt text](image-1.png)
 
+## Install Teaser++
+I found that Teaser++ can be most easily installed by running the following script
+```
+sudo apt install cmake libeigen3-dev libboost-all-dev
+git clone https://github.com/MIT-SPARK/TEASER-plusplus.git
+cd TEASER-plusplus && mkdir build && cd build
+cmake .. && make
+sudo make install
+sudo ldconfig
+cd .. && cd examples/teaser_cpp_ply && mkdir build && cd build
+cmake .. && make
+./teaser_cpp_ply
+```
+If done correctly, there should be some example output from Teaser++.
+
+To allow Teaser++ to work with the Python in Swarm-SLAM, run the following:
+```
+cd TEASER-plusplus/build
+cmake -DTEASERPP_PYTHON_VERSION=3.6 ..
+make teaserpp_python
+cd python
+pip install .
+```
+
 ## Install ROS2 Dependencies
 
 ```
@@ -111,6 +135,20 @@ or
 conda install $PACKAGES
 ```
 Make sure you are using the `pip` in the *virtual env (not base)*
+
+## Preparing Datasets (Work in Progress)
+
+To get the Graco dataset working, download from https://sites.google.com/view/graco-dataset/download. Download the ROS2Bag for Ground-01. This is a large dataset, so it make take some time. Unzip the file somewhere easy to access.
+
+Once unzipped, create a symlink so the dataset can be accessed by Swarm-SLAM:
+```
+cd Swarm-SLAM/src/cslam_experiments
+mkdir Graco_ground
+cd Graco_ground
+ln -s PATH_TO_DATASET_FOLDER Graco-0
+```
+
+In my case, I extracted the dataset to my downloads folder on Windows 11, so the symlink command became "ln -s /mnt/c/Users/(USER)/Downloads/ground-01 Graco-0".
 
 ## Running Experiments (Work in Progress)
 
