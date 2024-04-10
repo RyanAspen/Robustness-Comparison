@@ -152,7 +152,7 @@ In my case, I extracted the dataset to my downloads folder on Windows 11, so the
 
 ## Running Experiments (Work in Progress)
 
-To run experiments, first source using "source/install.bash" while in the swarm repo. Then, the following command should be accepted:
+To run experiments, first source using "source install/setup.bash" while in the swarm repo. Then, the following command should be accepted:
 "ros2 launch cslam_experiments graco_lidar.launch.py".
 
 In another terminal, source again and run "ros2 launch cslam_visualization visualization_lidar.launch.py" in the swarm repo.
