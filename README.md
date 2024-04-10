@@ -13,6 +13,32 @@ After cloning the Swarm-SLAM repo,
 ```
 sudo apt install python3-vcstool
 cd $SWARM_REPO
+```
+
+Then, edit the cslam.repos file such that it has the following contents. This is necessary to
+install cslam_visualization, which isn't installed by default.
+```
+repositories:
+  cslam:
+    type: git
+    url: https://github.com/lajoiepy/cslam.git
+    version: main
+  cslam_interfaces:
+    type: git
+    url: https://github.com/lajoiepy/cslam_interfaces.git
+    version: main
+  cslam_experiments:
+    type: git
+    url: https://github.com/lajoiepy/cslam_experiments.git
+    version: main
+  cslam_visualization:
+    type: git
+    url: https://github.com/lajoiepy/cslam_visualization.git
+    version: main
+```
+
+From there,
+```
 mkdir src
 vcs import src < cslam.repos
 ```
@@ -76,6 +102,8 @@ colcon build
 colcon test
 ```
 
+**NOTE** The colcon build may fail with a cc1plus error on certain setups. This seems to be associated with limited memory. Running "colcon build" again seems to fix the error.
+
 For any of the module **missing**, run
 ```
 pip install $PACKAGES
@@ -84,7 +112,10 @@ conda install $PACKAGES
 ```
 Make sure you are using the `pip` in the *virtual env (not base)*
 
+## Running Experiments (Work in Progress)
 
+To run experiments, first source using "source/install.bash" while in the swarm repo. Then, the following command should be accepted:
+"ros2 launch cslam_experiments graco_lidar.launch.py".
 
-
+In another terminal, source again and run "ros2 launch cslam_visualization visualization_lidar.launch.py" in the swarm repo.
 
