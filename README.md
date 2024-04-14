@@ -155,9 +155,11 @@ In my case, I extracted the dataset to my downloads folder on Windows 11, so the
 The config file needs to be modified so it logs data (it does not be default: https://github.com/lajoiepy/cslam_experiments/blob/9f72df6549478e55643e5c1ae566675d14faee13/config/graco_lidar.yaml#L35)
 
 To run experiments, first source using "source install/setup.bash" while in the swarm repo. Then, the following command should be accepted:
-"ros2 launch cslam_experiments graco_lidar.launch.py".
+```
+ros2 launch cslam_experiments graco_lidar.launch.py
+```
 
-In another terminal, source again and run "ros2 launch cslam_visualization visualization_lidar.launch.py" in the swarm repo.
+In another terminal, source again and run `ros2 launch cslam_visualization visualization_lidar.launch.py` in the swarm repo.
 
 The code does not exit on its own, so Ctrl-C once no new data is being processed.
 
