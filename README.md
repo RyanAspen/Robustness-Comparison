@@ -169,14 +169,6 @@ The code does not exit on its own, so Ctrl-C once no new data is being processed
 Reference from [collab_orb_slam2](https://github.com/d-vo/collab_orb_slam2). I tested on Ubuntu 18.04 and ROS Melodic
 
 ## Building
-
-```
-sudo apt-get install libglew-dev libboost-all-dev libopencv-dev build-essential cmake cmake-gui libeigen3-dev
-git clone https://github.com/d-vo/collab_orb_slam2
-cd collab_orb_slam2
-chmod +x build.sh
-./build.sh
-```
 Install ROS Melodic
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -192,6 +184,14 @@ sudo apt install python-rosdep
 sudo rosdep init
 rosdep update
 ```
+```
+sudo apt-get install libglew-dev libboost-all-dev libopencv-dev build-essential cmake cmake-gui libeigen3-dev
+git clone https://github.com/d-vo/collab_orb_slam2
+cd collab_orb_slam2
+chmod +x build.sh
+./build.sh
+```
+
 
 If you want to use ROS to run the compression make sure to have ROS installed and added the Examples/ROS path to your ROS_PACKAGE_PATH: (Make sure to chnage "YOUR_PATH_TO" with your folder)
 ```
