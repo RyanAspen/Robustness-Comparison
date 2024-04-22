@@ -9,8 +9,7 @@ We will only be using Sequence 00, but the code can easily be extended to work o
 
 To install JORB-SLAM, use the following instructions. We tested with Ubuntu 18.04.
 ```
-git clone https://github.com/um-mobrob-t12-w19/ORB_SLAM2 ORB_SLAM2
-cd ORB_SLAM2
+cd JORB_SLAM/ORB_SLAM2
 ./install_apriltags.sh
 ./install_pangolin.sh
 chmod +x build.sh
