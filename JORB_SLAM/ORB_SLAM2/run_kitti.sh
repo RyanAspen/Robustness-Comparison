@@ -1,0 +1,1 @@
+./Examples/Stereo/stereo_kitti Vocabulary/ORBvoc.bin Examples/Stereo/KITTI00-02.yaml datasets/kitti_odometry_00 Examples/KittiServerConfig.yaml
