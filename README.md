@@ -4,14 +4,16 @@ Project Proposal - A Comparative Analysis on Redundancy and Robustness of Centra
 # JORB-SLAM
 
 To install JORB-SLAM, use the following instructions. We tested with Ubuntu 18.04.
+```
 git clone https://github.com/um-mobrob-t12-w19/ORB_SLAM2 ORB_SLAM2
 cd ORB_SLAM2
 ./install_apriltags.sh
 ./install_pangolin.sh
 chmod +x build.sh
 ./build.sh
+```
 
-**NOTE** For some setups, running the above commands may result in cc1plus errors due to memory constraints. To get around this, run each command in the scripts one at a time, replacing make j8 commands with regular make commands (for example, "make -j$((num_procs_avail > 1 ? num_procs_avail : 1))" becomes "make"). This will result in using a single-processor for building.
+**NOTE** For some setups, running the above commands may result in cc1plus errors due to memory constraints. To get around this, run each command in the scripts one at a time, replacing make j8 commands with regular make commands (for example, ```make -j$((num_procs_avail > 1 ? num_procs_avail : 1))``` becomes ```make```). This will result in using a single-processor for building.
 
 **NOTE** There is a known bug in how the Eigen library is installed which results in not being able to build. Make sure to remove the file "cmake_modules/FindEigen3.cmake" and edit line 50 in "CMakeLists.txt" to replace "EIGEN3_INCLUDE_DIR" with the path to your Eigen installation. In my case, this was "/usr/lib/Eigen".
 
@@ -22,11 +24,13 @@ To generate a map point cloud, open "Examples/Stereo/stereo_kitti.cc". The const
 - fraction_to_remove refers to the fraction of frames to randomly remove from
 
 When these constants are set to what you want, run the following:
+```
 cd build
 make stereo_kitti
 cd ..
 ./Examples/Stereo/stereo_kitti Vocabulary/ORBvoc.txt Examples/Stereo/KITTI00-02.yaml {PATH_TO_KITTI_DATASET}/dataset/sequences/00 Examples/KittiServerConfig.yaml
- 
+```
+
 # Collab_orb_slam2
 
 Reference from [collab_orb_slam2](https://github.com/d-vo/collab_orb_slam2). I tested on Ubuntu 18.04 and ROS Melodic
