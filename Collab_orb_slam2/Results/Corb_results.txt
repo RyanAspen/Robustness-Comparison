@@ -1,0 +1,72 @@
+All are compared with 0% frame skipping
+
+0% error
+
+Size 1 = 39447 Size 2 = 42459
+Chamfer Distance = 1.92753
+Hausdorff Distance = 9693.83
+
+Size 1 = 39447 Size 2 = 42990
+Chamfer Distance = 1.88071
+Hausdorff Distance = 9321.23
+
+Size 1 = 39447 Size 2 = 42704
+Chamfer Distance = 1.73922
+Hausdorff Distance = 9704.68
+
+5% Error
+
+Size 1 = 39447 Size 2 = 45249
+Chamfer Distance = 1.80616
+Hausdorff Distance = 9291.67
+
+Size 1 = 39447 Size 2 = 33363
+Chamfer Distance = 0.51069
+Hausdorff Distance = 9304.38
+
+Size 1 = 39447 Size 2 = 32745
+Chamfer Distance = 0.606164
+Hausdorff Distance = 9289.8
+
+10% Error
+
+Size 1 = 39447 Size 2 = 43083
+Chamfer Distance = 1.99
+Hausdorff Distance = 9384.95
+
+Size 1 = 39447 Size 2 = 36963
+Chamfer Distance = 0.66901
+Hausdorff Distance = 9338.2
+
+Size 1 = 39447 Size 2 = 42204
+Chamfer Distance = 1.76185
+Hausdorff Distance = 9328.21
+
+
+15% Error
+
+Size 1 = 39447 Size 2 = 32337
+Chamfer Distance = 0.543135
+Hausdorff Distance = 9769.88
+
+Size 1 = 39447 Size 2 = 32451
+Chamfer Distance = 0.5587
+Hausdorff Distance = 9880.21
+
+Size 1 = 39447 Size 2 = 32640
+Chamfer Distance = 0.611468
+Hausdorff Distance = 9393.49
+
+20% Error
+
+Size 1 = 39447 Size 2 = 32637
+Chamfer Distance = 0.732152
+Hausdorff Distance = 9289.48
+
+Size 1 = 39447 Size 2 = 34431
+Chamfer Distance = 0.597566
+Hausdorff Distance = 9291.06
+
+Size 1 = 39447 Size 2 = 31188
+Chamfer Distance = 0.608494
+Hausdorff Distance = 9601.13
