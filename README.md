@@ -1,6 +1,10 @@
 # Robustness-Comparison
 Project Proposal - A Comparative Analysis on Redundancy and Robustness of Centralized and Decentralized Multi-Robot SLAM
 
+## Dataset
+Download the KITTI odometry dataset (grayscale images) from [here](http://www.cvlibs.net/datasets/kitti/eval_odometry.php)
+We will only be using Sequence 00, but the code can easily be extended to work on the other sequences as well.
+
 # JORB-SLAM
 
 To install JORB-SLAM, use the following instructions. We tested with Ubuntu 18.04.
@@ -30,6 +34,7 @@ make stereo_kitti
 cd ..
 ./Examples/Stereo/stereo_kitti Vocabulary/ORBvoc.txt Examples/Stereo/KITTI00-02.yaml {PATH_TO_KITTI_DATASET}/dataset/sequences/00 Examples/KittiServerConfig.yaml
 ```
+This will generate a file called "mapOutput.txt" that contains a pointcloud. 
 
 # Collab_orb_slam2
 
@@ -100,4 +105,10 @@ Start Agent, change PATH_TO_DATASET_FOLDER with your data folder, SEQUENCE_NUMBE
 ```
 Remember to start server first before starting the agent
 
+# Generating Pointcloud Statistics
 
+Once pointcloud files are generated, comparison statistics can be calculated with "mapAMDcalc.cpp". Adjust the files paths at lines 25 and 53 to be the paths to two different pointcloud files. Once that is done, run the following:
+```
+g++ mapAMDcalc.cpp
+./a.out
+```
