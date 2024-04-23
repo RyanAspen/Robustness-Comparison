@@ -1,15 +1,37 @@
-# Robustness-Comparison
-Project Proposal - A Comparative Analysis on Redundancy and Robustness of Centralized and Decentralized Multi-Robot SLAM
+# A Comparative Analysis on Robustness of Centralized Multi-Robot SLAM
+In this project we tested robustness between two ORB-SLAM based centralized multi-robot SLAM methods, [JORB-SLAM](https://github.com/um-mobrob-t12-w19/JORB-SLAM/) and [Collaborative ORB-SLAM2](https://github.com/d-vo/collab_orb_slam2), along with the performance of single agent [ORB_SLAM2](https://github.com/raulmur/ORB_SLAM2) on the same KITTI dataset.
 
 ## Dataset
 Download the KITTI odometry dataset (grayscale images) from [here](http://www.cvlibs.net/datasets/kitti/eval_odometry.php)
 We will only be using Sequence 00, but the code can easily be extended to work on the other sequences as well.
 
-# JORB-SLAM
+# 1. ORB_SLAM2
+**Authors:** [Raul Mur-Artal](http://webdiis.unizar.es/~raulmur/), [Juan D. Tardos](http://webdiis.unizar.es/~jdtardos/), [J. M. M. Montiel](http://webdiis.unizar.es/~josemari/) and [Dorian Galvez-Lopez](http://doriangalvez.com/) ([DBoW2](https://github.com/dorian3d/DBoW2))
+
+ORB-SLAM2 is a real-time SLAM library for **Monocular**, **Stereo** and **RGB-D** cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale). It is able to detect loops and relocalize the camera in real time.
+
+Both centralized multi-robot SLAM we tested are ORB_SLAM2 based. Kindly refer to [here for original implementation.](https://github.com/raulmur/ORB_SLAM2) We tested on Ubuntu 16.04
+
+After installing all required dependencies, clone the `ORB_SLAM2` folder and make some configurations. Open "Examples/Stereo/stereo_kitti.cc". The constants defined at lines 67-69 can all be adjusted.
+- `fail_rate` refers to the fraction of frames to randomly remove from.
+- `seq_start` and `seq_end` are the starting and ending frame index.
+
+To generate matched feature map points, follow
+```
+cd ORB_SLAM2
+chmod +x build.sh
+./build.sh
+./Examples/Stereo/stereo_kitti Vocabulary/ORBvoc.txt Examples/Stereo/KITTIX.yaml PATH_TO_DATASET_FOLDER/dataset/sequences/SEQUENCE_NUMBER
+```
+To compare between two generated map point file. simply configure the paths and run `/results/mapAMDcalc.cpp`
+
+# 2. JORB-SLAM
+**Authors:** Martin D Deegan, Yuanxin Zhong, Purva Kulkarni, Christine Searle, Kaustav Chakraborty.
+
 
 To install JORB-SLAM, use the following instructions. We tested with Ubuntu 18.04.
 ```
-cd JORB_SLAM/ORB_SLAM2
+cd JORB_SLAM
 ./install_apriltags.sh
 ./install_pangolin.sh
 chmod +x build.sh
@@ -35,9 +57,11 @@ cd ..
 ```
 This will generate a file called "mapOutput.txt" that contains a pointcloud. 
 
-# Collab_orb_slam2
+# 3. Collab_orb_slam2
 
-Reference from [collab_orb_slam2](https://github.com/d-vo/collab_orb_slam2). I tested on Ubuntu 18.04 and ROS Melodic
+**Authors:**
+Dominik Van Opdenbosch  and Eckehard Steinach
+Chair of Media Technology, Technical University of Munich. Reference from [collab_orb_slam2](https://github.com/d-vo/collab_orb_slam2). We tested on Ubuntu 18.04 and ROS Melodic.
 
 ## Building
 Install ROS Melodic
@@ -93,7 +117,7 @@ Start Agent, change PATH_TO_DATASET_FOLDER with your data folder, SEQUENCE_NUMBE
 ```
 ./Examples/ROS/compression/KittiAgentDepth -v Vocabulary/voc_k10_l_5_N_100000.txt -c Vocabulary/stats_8b.vstats -i PATH_TO_DATASET_FOLDER/dataset/sequences/SEQUENCE_NUMBER -r AGEND_ID -s  Examples/ROS/compression/KITTIX.yaml
 ```
-### stereo
+### Stereo
 Start Server in new window
 ```
 ./Examples/ROS/compression/KittiServerStereo -v Vocabulary/voc_k10_l_5_N_100000.txt -c Vocabulary/stats_8b.vstats -s Examples/ROS/compression/
@@ -104,7 +128,7 @@ Start Agent, change PATH_TO_DATASET_FOLDER with your data folder, SEQUENCE_NUMBE
 ```
 Remember to start server first before starting the agent
 
-# Generating Pointcloud Statistics
+## Generating Pointcloud Statistics
 
 Once pointcloud files are generated, comparison statistics can be calculated with "mapAMDcalc.cpp". Adjust the files paths at lines 25 and 53 to be the paths to two different pointcloud files. Once that is done, run the following:
 ```
