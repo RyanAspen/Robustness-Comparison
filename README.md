@@ -25,6 +25,9 @@ chmod +x build.sh
 ```
 To compare between two generated map point file. simply configure the paths and run `/results/mapAMDcalc.cpp`
 
+![image](/media/single_frame.png)
+![image](/media/single_map.png)
+
 # 2. JORB-SLAM
 **Authors:** Martin D Deegan, Yuanxin Zhong, Purva Kulkarni, Christine Searle, Kaustav Chakraborty.
 
