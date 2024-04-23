@@ -18,7 +18,7 @@ After installing all required dependencies, clone the `ORB_SLAM2` folder and mak
 
 To generate matched feature map points, follow
 ```
-cd ORB_SLAM2
+cd single_orb_slam2
 chmod +x build.sh
 ./build.sh
 ./Examples/Stereo/stereo_kitti Vocabulary/ORBvoc.txt Examples/Stereo/KITTIX.yaml PATH_TO_DATASET_FOLDER/dataset/sequences/SEQUENCE_NUMBER
