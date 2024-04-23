@@ -1,0 +1,53 @@
+Summary: higher error means higher failure rate. Frames are crucial during making a turn due to large sudden change of odometry causing feature point mismatch
+
+Error 0
+Failure rate:0
+
+Chamfer Distance = 0.122577
+Hausdorff Distance = 1499.2
+
+Chamfer Distance = 0.127419
+Hausdorff Distance = 517.481
+
+Chamfer Distance = 0.106592
+Hausdorff Distance = 91.7042
+==================
+
+Error 0.05
+Failure rate:2/5
+
+Chamfer Distance = 0.868919
+Hausdorff Distance = 201.203
+
+Chamfer Distance = 0.568779
+Hausdorff Distance = 507.375
+
+Chamfer Distance = 0.342222
+Hausdorff Distance = 518.162
+=================
+
+Error 0.10
+Failure rate:1/3
+
+Chamfer Distance = 0.317525
+Hausdorff Distance = 963.862
+
+Chamfer Distance = 0.306886
+Hausdorff Distance = 244.44
+
+Chamfer Distance = 0.367101
+Hausdorff Distance = 960.944
+==================
+
+Error 0.15
+Failure rate:7/8
+
+Chamfer Distance = 0.530406
+Hausdorff Distance = 507.438  # Only 1 succeeded
+===================
+
+Error 0.20
+Failure rate:1
+# No case succeeded
+
+
